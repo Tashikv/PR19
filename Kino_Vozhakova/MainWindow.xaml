@@ -7,6 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" MinHeight="450" MinWidth="800">
     <Grid>
-        <Frame x:Name="frame" NavigationUIVisibility="Hidden"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Height="50" Background="Navy">
+            <Label Content="Система управления кинотеатрами" Foreground="White" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"/>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0">
+                <Button Content="Кинотеатры" Click="Kinoteatr_Click" Margin="5" Padding="10,5"/>
+                <Button Content="Афиша" Click="Afisha_Click" Margin="5" Padding="10,5"/>
+                <Button Content="Выход" Click="Exit_Click" Margin="5" Padding="10,5"/>
+            </StackPanel>
+        </Grid>
+        <Frame x:Name="frame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
