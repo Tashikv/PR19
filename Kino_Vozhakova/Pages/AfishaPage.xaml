@@ -5,10 +5,34 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Kino_Vozhakova.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
       Title="AfishaPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Label Content="Кинотеатр:" VerticalAlignment="Center"/>
+            <ComboBox x:Name="cmbKinoteatr" Width="150" Margin="5"/>
+            <Button Content="Добавить" Click="Add_Click" Margin="5" Padding="10,5"/>
+            <Button Content="Редактировать" Click="Edit_Click" Margin="5" Padding="10,5"/>
+            <Button Content="Удалить" Click="Delete_Click" Margin="5" Padding="10,5"/>
+            <Button Content="Назад" Click="Back_Click" Margin="5" Padding="10,5"/>
+        </StackPanel>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="10">
+            <ListBox x:Name="lstAfishas">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding name}" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding time, StringFormat='Время: {0:yyyy-MM-dd}'}" />
+                            <TextBlock Text="{Binding price, StringFormat='Цена: {0} руб.'}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </ScrollViewer>
     </Grid>
 </Page>

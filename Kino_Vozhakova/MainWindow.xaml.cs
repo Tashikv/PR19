@@ -1,6 +1,8 @@
 ﻿using Kino_Vozhakova.Classes;
+using Kino_Vozhakova.Pages;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,8 +27,8 @@ namespace Kino_Vozhakova
             kinoteatr,
             afisha
         }
-        public List<KinoteatrClass> kinoteatrs = new List<KinoteatrClass>();
-        public List<AfishaClass> afishas = new List<AfishaClass>();
+        public ObservableCollection<KinoteatrClass> kinoteatrs = new ObservableCollection<KinoteatrClass>();
+        public ObservableCollection<AfishaClass> afishas = new ObservableCollection<AfishaClass>();
         public MainWindow()
         {
             InitializeComponent();
@@ -100,6 +102,21 @@ namespace Kino_Vozhakova
         public void RefreshData()
         {
             LoadData();
+        }
+
+        private void Kinoteatr_Click(object sender, RoutedEventArgs e)
+        {
+            OpenPages(Pages.kinoteatr);
+        }
+
+        private void Afisha_Click(object sender, RoutedEventArgs e)
+        {
+            OpenPages(Pages.afisha);
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
